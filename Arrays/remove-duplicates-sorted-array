@@ -1,0 +1,16 @@
+// Problem: Remove Duplicates from Sorted Array
+// Pattern: Two Pointers
+// Time: O(n)
+// Space: O(1)
+// Key idea: Use one pointer to track the position of the last unique element and another pointer to scan through the array.
+
+var removeDuplicates = function(nums) {
+    let x = 0;
+        for(let i = 0; i < nums.length; i++) {
+            if(nums[i] > nums[x]){
+              x++;
+              nums[x] = nums[i];
+            }
+        }
+  return x+1;    
+};
