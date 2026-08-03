@@ -1,0 +1,37 @@
+// Problem: Valid Anagram
+// Pattern: HashMap / Frequency Counter
+// Time: O(n)
+// Space: O(n)
+// Key idea: Store the frequency of each character in s, then decrement the count while traversing t.
+// If a character is missing or overused, return false.
+
+var isAnagram = function(s, t) {
+
+    // s.split("").sort().join("") ===  t.split("").sort().join("");
+    // return true;
+  
+    if(s.length != t.length) return false;
+
+    let map = new Map();
+
+    for(let i = 0; i < s.length; i++) {
+        if(!map[s[i]]) {
+            map[s[i]] = 1;
+        }
+        else {
+            map[s[i]]++;
+        }
+    }
+
+    for(let i = 0; i < t.length; i++) {
+        if(!map[t[i]] || map[t[i]] < 0){
+            return false;
+            }
+   
+    else {
+        map[t[i]]--;
+    }
+    }
+
+     return true;   
+};
