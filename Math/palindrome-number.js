@@ -9,7 +9,7 @@ var isPalindrome = function(x) {
 
     let s = String(x);
     let i = 0;
-    let j = Math.floor(s.length-1);
+    let j = s.length-1;
 
     while(i<j) {
         if(s[i] !== s[j]) return false;
